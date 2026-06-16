@@ -278,6 +278,7 @@ ul {
   display: inline-block;
   text-decoration: none;
   list-style: none;
+  color: #fff;
 }
 
 .links__things:hover {
