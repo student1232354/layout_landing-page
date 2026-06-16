@@ -219,7 +219,7 @@
 
 
         <div class="feedback">
-          <form onsubmit="this.reset(); return false;" class="feedback__form" action="#" method="POST">
+          <form autocomplete="off" onsubmit="event.preventDefault()" class="feedback__form" action="#">
             <div class="feedback__field-wrapper">
               <input class="feedback__input" type="text" name="user-name" placeholder="NAME" required>
             </div>
@@ -288,6 +288,17 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 
 });
+
+const form = document.querySelector('form');
+
+
+form.addEventListener('submit', (event) => {
+  event.preventDefault();
+
+
+  form.reset();
+});
+
 </script>
 </body>
 
