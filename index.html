@@ -24,11 +24,11 @@
 
 <div class="burger__things">
   <ul class="burger__links">
-    <li class="links__things">Home</li>
-    <li class="links__things">About Us</li>
-    <li class="links__things">gallery</li>
-    <li class="links__things">Explore Online</li>
-    <li class="links__things">Contacts</li>
+    <li><a href="#home" class="links__things">Home</a></li>
+    <li><a href="#About" class="links__things">About Us</a></li>
+    <li><a href="#gallery" class="links__things">gallery</a></li>
+    <li><a href="#explore" class="links__things">Explore Online</a></li>
+    <li><a href="#thing" class="links__things">Contacts</a></li>
   </ul>
 </div>
 
@@ -38,11 +38,11 @@
         <a id="number" href="tel:+12125357710" class="links__number shouldbechanged">+1 212-535-7710</a>
         <li class="links__fifth">The Met Cloisters</li>
         <a id="number" href="tel:+12129233700" class="links__number shouldbechanged">+1 212-923-3700</a>
-        <li class="links__order">call to order</li>
+        <li id="number" href="tel:+12125357710" class="links__order shouldbechanged"> <a id="number" href="tel:+12125357710" class="links__number shouldbechanged" >call to order</a></li>
       </ul>
     </div>
   </section>
-  <header class="header">
+  <header id="home" class="header">
     <div class="container">
       <div class="header__top">
         <div class="header__logo">THE <br> MET</div>
@@ -69,7 +69,7 @@
   <main>
     <div class="container">
 
-      <section class="schedule">
+      <section id="About" class="schedule">
         <div class="schedule__intro">
           <div class="schedule__subtitle">Plan your visit</div>
           <h2 class="schedule__title">Museum hours</h2>
@@ -113,7 +113,7 @@
         </div>
       </section>
 
-      <section class="exhibitions">
+      <section id="gallery" class="exhibitions">
         <div class="exhibitions__header">
           <h2 class="exhibitions__title">Now On View</h2>
           <div class="exhibitions__subtitle">Explore exhibition gallery guides, <br> videos, articles, and more.</div>
@@ -122,20 +122,20 @@
         <div class="exhibitions__list">
           <div class="exhibitions__card">
             <div class="exhibitions__images exhibitions__images--first">
-              <img src="src/sources/1.png" alt="Exhibition image">
-              <img src="src/sources/2.png" alt="Exhibition image">
+              <img class="changing" src="src/sources/1.png" alt="Exhibition image">
+              <img class="changing" src="src/sources/2.png" alt="Exhibition image">
             </div>
             <div class="exhibitions__meta">
-              <div class="exhibitions__tag">A New Look at Old Masters</div>
-              <div class="exhibitions__date">December 12, 2020 – Through Spring 2023</div>
+              <div class="exhibitions__tag changing">A New Look at Old Masters</div>
+              <div class="exhibitions__date changing">December 12, 2020 – Through Spring 2023</div>
             </div>
           </div>
 
           <div class="exhibitions__card">
             <div class="exhibitions__images exhibitions__images--second">
-              <img src="src/sources/3.png" alt="Exhibition image">
-              <img src="src/sources/4.png" alt="Exhibition image">
-              <img class="Image__that" src="src/sources/5.png" alt="Exhibition image">
+              <img class="changing" src="src/sources/3.png" alt="Exhibition image">
+              <img class="changing" src="src/sources/4.png" alt="Exhibition image">
+              <img class="Image__that changing" src="src/sources/5.png" alt="Exhibition image">
             </div>
             <div class="exhibitions__meta">
               <div class="exhibitions__tag">Bodhisattvas of Wisdom, Compassion, and Power</div>
@@ -145,8 +145,8 @@
 
           <div class="exhibitions__card">
             <div class="exhibitions__images exhibitions__images--third">
-              <img src="src/sources/10.png" alt="Exhibition image">
-              <img src="src/sources/9.png" alt="Exhibition image">
+              <img class="changing" src="src/sources/10.png" alt="Exhibition image">
+              <img class="changing" src="src/sources/9.png" alt="Exhibition image">
             </div>
             <div class="exhibitions__meta">
               <div class="exhibitions__tag">Inspiring Walt Disney: The Animation of French Decorative Arts</div>
@@ -158,23 +158,23 @@
         <a class="exhibitions__btn-more" href="#">View all Exhibitions</a>
       </section>
 
-      <section class="explore">
+      <section id="explore" class="explore">
         <h2 class="explore__title">More to Explore <br> Online</h2>
         <div class="explore__list">
           <div class="explore__block">
-            <img class="explore__images" src="src/sources/8.png" alt="Collection Areas">
+            <img class="explore__images changing" src="src/sources/8.png" alt="Collection Areas">
             <div class="explore__block-title">Collection Areas</div>
             <div class="explore__block-text">These collection areas study, exhibit, and care for the objects in The Met
               collection.</div>
           </div>
           <div  class="explore__block">
-            <img  class="explore__images" src="src/sources/11.png" alt="Travel">
+            <img  class="explore__images changing" src="src/sources/11.png" alt="Travel">
             <div class="explore__block-title">Travel</div>
             <div class="explore__block-text">Travel with The Met connects the Museum's wide and diverse audience to art,
               inspiration, and historical perspective.</div>
           </div>
           <div class="explore__block">
-            <img  class="explore__images"  src="src/sources/7.png" alt="Virtual tours">
+            <img  class="explore__images changing"  src="src/sources/7.png" alt="Virtual tours">
             <div class="explore__block-title">Virtual group tours</div>
             <div class="explore__block-text">Request a guided tour, reserve admission and lead your own small group, or
               request a live virtual tour led by a Museum guide.</div>
@@ -184,7 +184,7 @@
     </div>
   </main>
 
-  <footer class="footer">
+  <footer id="thing" class="footer">
     <div class="container">
       <div class="footer__content">
         <div class="footer__just">
@@ -244,11 +244,18 @@ document.addEventListener('DOMContentLoaded', function() {
   const burgerMenu = document.querySelector('.burger__menu');
   const openBtn = document.querySelector('.header__menu');
   const closeBtn = document.querySelector('.burger__cross');
+  const burgerLinks = document.querySelectorAll('.links__things');
+
+  burgerLinks.forEach(link => {
+  link.addEventListener('click', () => {
 
 
-  console.log("Меню знайдено:", !!burgerMenu);
-  console.log("Кнопка відкриття знайдена:", !!openBtn);
-  console.log("Кнопка закриття знайдена:", !!closeBtn);
+    burgerMenu.classList.remove('burger__menu--open');
+
+
+    document.body.classList.remove('no-scroll');
+  });
+});
 
 
   if (openBtn) {

@@ -2,13 +2,16 @@ html {
   margin: 0;
   padding: 0;
   width: 100%;
-
+  scroll-behavior: smooth;
   overflow-x: hidden;
 }
+
+
 
 body {
     margin: 0;
   padding: 0;
+  scroll-behavior: smooth;
   width: 100%;
   font-family: Roboto, sans-serif;
   font-style: normal;
@@ -23,10 +26,9 @@ body {
   }
 }
 
-img:hover {
-  transition: transform 0.3s ease;
-  transform: scale(1.05);
-}
+
+
+
 
 
 
@@ -249,6 +251,10 @@ ul {
 
   &__things {
     margin-top: 55px;
+
+  }
+  &__ls {
+    text-decoration:none ;
   }
 
   &__links {
@@ -258,6 +264,8 @@ ul {
     font-family: Cinzel, serif;
     font-weight: 700;
     font-size: 22px;
+    text-decoration: none;
+    list-style: none;
     color: #fff;
     line-height: 22px;
     letter-spacing: 2px;
@@ -269,7 +277,8 @@ ul {
   margin-bottom: 17px;
   padding-bottom: 3px;
   display: inline-block;
-
+  text-decoration: none;
+  list-style: none;
   &:hover {
     border-bottom: 1px solid #fff;
   }
@@ -283,6 +292,7 @@ ul {
   line-height: 27px;
   text-transform: uppercase;
 }
+
 
 .links__number {
   list-style: none;
@@ -334,6 +344,8 @@ ul {
     text-transform: uppercase;
     margin-bottom: 10px;
   }
+
+
 
   &__title {
     font-family: Cinzel, serif;
@@ -761,4 +773,13 @@ ul {
     color: #eee;
   }
 
+}
+
+
+
+
+
+.burger__links a,
+.burger__menu a {
+  text-decoration: none !important;
 }
