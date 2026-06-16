@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Landing Page</title>
+  <title>The Metropolitan Museum of Art</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,33 +12,32 @@
     rel="stylesheet">
 
   <link rel="stylesheet" href="src/styles/main.css">
-  <script src="src/scripts/main.js" defer></script>
+  <link rel="icon" type="image/x-icon" href="src/sources/THEMET.svg">
 </head>
 
 <body>
-  <section class="burger__menu">
+  <section class="burger__menu" id="burger-menu">
     <div class="burger__header">
       <div class="burger__logo">THE <br> MET</div>
       <div class="burger__cross"><img src="src/sources/Icon-Close.png" alt=""></div>
     </div>
 
-
-    <div class="burger__things">
-      <ul class="burger__links">
-        <li class="links__things">Home</li>
-        <li class="links__things">About Us</li>
-        <li class="links__things">Gallery</li>
-        <li class="links__things">Explore Online</li>
-        <li class="links__things">Contacts</li>
-      </ul>
-    </div>
+<div class="burger__things">
+  <ul class="burger__links">
+    <li class="links__things">Home</li>
+    <li class="links__things">About Us</li>
+    <li class="links__things">gallery</li>
+    <li class="links__things">Explore Online</li>
+    <li class="links__things">Contacts</li>
+  </ul>
+</div>
 
     <div class="burger__things">
       <ul class="burger__links">
         <li class="links__fifth">THE MET FIFTH AVENUE</li>
-        <li class="links__number">+1 212-535-7710</li>
+        <a id="number" href="tel:+12125357710" class="links__number shouldbechanged">+1 212-535-7710</a>
         <li class="links__fifth">The Met Cloisters</li>
-        <li class="links__number">+1 212-923-3700</li>
+        <a id="number" href="tel:+12129233700" class="links__number shouldbechanged">+1 212-923-3700</a>
         <li class="links__order">call to order</li>
       </ul>
     </div>
@@ -51,9 +50,9 @@
           <div class="header__newcontacts">
             <ul class="header__contacs">
               <li>THE MET FIFTH Avenue</li>
-              <li>+1 212-535-7710</li>
+              <li><a href="tel:+12125357710" class="links__number shouldbechanged">+1 212-535-7710</a></li>
               <li>The Met Cloisters</li>
-              <li>+1 212-923-3700</li>
+              <li><a href="tel:+12129233700"  class="links__number shouldbechanged">+1 212-923-3700</a></li>
             </ul>
           </div>
           <div class="header__justtforgap">
@@ -192,23 +191,35 @@
           <div class="footer__info">
             <h3 class="footer__headline">The Met Fifth Avenue</h3>
             <div class="footer__label">Phone</div>
-            <div class="footer__value">+1 212-535-7710</div>
+            <div class="footer__value changing">+1 212-535-7710</div>
             <div class="footer__label">Address</div>
-            <div class="footer__value">1000 Fifth Avenue <br> New York, NY 10028</div>
+            <div class="footer__value changing">
+              <a href="https://www.google.com/maps/search/?api=1&query=1000+Fifth+Avenue+New+York+NY+10028"
+   target="_blank"
+   class="footer__value changing">
+   1000 Fifth Avenue <br> New York, NY 10028
+</a>
+            </div>
           </div>
 
           <div class="footer__info">
             <h3 class="footer__headline">The Met Cloisters</h3>
             <div class="footer__label">Phone</div>
-            <div class="footer__value">+1 212-535-7710</div>
+            <div class="footer__value changing">+1 212-535-7710</div>
             <div class="footer__label">Address</div>
-            <div class="footer__value">99 Margaret Corbin Drive <br> Fort Tryon Park <br> New York, NU 10040</div>
+            <div class="footer__value changing">
+                <a href="https://maps.google.com/?q=99+Margaret+Corbin+Drive,+Fort+Tryon+Park,+New+York,+NY+10040"
+                  target="_blank"
+                  class="footer__value changing">
+                  99 Margaret Corbin Drive <br> Fort Tryon Park <br> New York, NU 10040
+                </a>
+            </div>
           </div>
         </div>
 
 
         <div class="feedback">
-          <form class="feedback__form" action="#" method="POST">
+          <form onsubmit="this.reset(); return false;" class="feedback__form" action="#" method="POST">
             <div class="feedback__field-wrapper">
               <input class="feedback__input" type="text" name="user-name" placeholder="NAME" required>
             </div>
@@ -225,6 +236,59 @@
     </div>
     <div class="footer__bg-end"></div>
   </footer>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  console.log("JS завантажився успішно!");
+
+
+  const burgerMenu = document.querySelector('.burger__menu');
+  const openBtn = document.querySelector('.header__menu');
+  const closeBtn = document.querySelector('.burger__cross');
+
+
+  console.log("Меню знайдено:", !!burgerMenu);
+  console.log("Кнопка відкриття знайдена:", !!openBtn);
+  console.log("Кнопка закриття знайдена:", !!closeBtn);
+
+
+  if (openBtn) {
+    openBtn.addEventListener('click', function(e) {
+      e.preventDefault();
+      console.log("Клікнули на кнопку ВІДКРИТТЯ");
+      if (burgerMenu) {
+        burgerMenu.classList.add('burger__menu--open');
+        document.documentElement.classList.add('no-scroll');
+        document.body.classList.add('no-scroll');
+      }
+    });
+  }
+
+
+  if (closeBtn) {
+    closeBtn.addEventListener('click', function(e) {
+      e.preventDefault();
+      console.log("Клікнули на кнопку ЗАКРИТТЯ");
+      if (burgerMenu) {
+        burgerMenu.classList.remove('burger__menu--open');
+        document.documentElement.classList.remove('no-scroll');
+        document.body.classList.remove('no-scroll');
+      }
+    });
+  }
+
+
+  const phoneLinks = document.querySelectorAll('a[href^="tel:"]');
+  phoneLinks.forEach(function(link) {
+    link.addEventListener('click', function(event) {
+      const confirmCall = confirm("Ви дійсно хочете зателефонувати прямо зараз?");
+      if (!confirmCall) {
+        event.preventDefault();
+      }
+    });
+  });
+
+});
+</script>
 </body>
 
 </html>

@@ -1,5 +1,4 @@
-html,
-body {
+html {
   margin: 0;
   padding: 0;
   width: 100%;
@@ -7,11 +6,25 @@ body {
 }
 
 body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
   font-family: Roboto, sans-serif;
   font-style: normal;
   font-size: 12px;
   font-weight: 500;
   color: #161616;
+  overflow-x: hidden;
+}
+
+body.no-scroll {
+  overflow: hidden !important;
+  height: 100vh !important;
+}
+
+img:hover {
+  transition: transform 0.3s ease;
+  transform: scale(1.05);
 }
 
 ul {
@@ -58,6 +71,10 @@ ul {
   }
 }
 
+.header__hovernumbers {
+  cursor: pointer;
+}
+
 .header__menu {
   cursor: pointer;
 }
@@ -92,6 +109,11 @@ ul {
   opacity: 0;
   visibility: hidden;
   transition: all 0.3s ease;
+}
+
+.header__newcontacts:hover {
+  opacity: 1;
+  visibility: visible;
 }
 
 @media (max-width: 576px) {
@@ -144,10 +166,10 @@ ul {
 
 @media (max-width: 576px) {
   .header__title {
-    font-size: 28px;
+    font-size: 40px;
     line-height: 36px;
     margin-top: 20px;
-    padding: 0 15px;
+    padding: 10 15px;
   }
 }
 
@@ -179,6 +201,18 @@ ul {
     padding-left: 20px;
     padding-right: 20px;
   }
+}
+
+.burger__menu:target {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.burger__menu__header {
+  position: sticky;
+  top: 0;
+  z-index: 1;
 }
 
 .burger__menu--open {
@@ -255,11 +289,15 @@ ul {
 }
 
 .links__number {
+  list-style: none;
+  text-decoration: none;
+  color: #fff;
   font-family: Cinzel, serif;
   font-weight: 600;
   font-size: 16px;
   line-height: 27px;
   text-transform: uppercase;
+  cursor: pointer;
 }
 
 .links__order {
@@ -584,6 +622,8 @@ ul {
 }
 
 .footer {
+  z-index: -1;
+  display: fixed;
   width: 100%;
   padding-top: 140px;
 }
@@ -596,9 +636,16 @@ ul {
 
 .footer__content {
   display: flex;
-  justify-content: space-between;
-  gap: 50px;
+  justify-content: center;
+  gap: 70px;
   padding-bottom: 80px;
+}
+
+@media (max-width: 790px) {
+  .footer__content {
+    gap: 10px;
+    display: block;
+  }
 }
 
 @media (max-width: 576px) {
@@ -684,7 +731,9 @@ ul {
   outline: none;
 }
 
-
+.feedback__input {
+  color: #9a9a9a;
+}
 
 .feedback__input::placeholder, .feedback__textarea::placeholder {
   color: #9a9a9a;
@@ -716,4 +765,25 @@ ul {
 .explore__images {
   width: 320px;
   height: 320px;
+}
+
+.shouldbechanged {
+  transition: 0.3s ease;
+}
+
+.shouldbechanged:hover {
+  transition: 0.3s ease;
+  transform: scale(1.05);
+  color: #eee;
+}
+
+.changing {
+  transition: 0.3s ease;
+  text-decoration: none;
+}
+
+.changing:hover {
+  transition: 0.3s ease;
+  transform: scale(1.05);
+  color: #eee;
 }/*# sourceMappingURL=main.css.map */
